@@ -1,0 +1,71 @@
+<!-- Material form register -->
+<mdb-card>
+
+    <mdb-card-header class="info-color white-text text-center py-4">
+        <h5>
+            <strong>Ajout de produit</strong>
+        </h5>
+    </mdb-card-header>
+
+    <!--Card content-->
+    <mdb-card-body class="px-lg-5 pt-0">
+
+        <!-- Form -->
+        <form [formGroup]="profileForm" (submit)='addProd()' class="text-center" style="color: #757575;">
+
+            <div class="form-row">
+                <div class="col">
+                    <!-- First name -->
+                    <div class="md-form">
+                        <input type="text" id="materialRegisterFormFirstName" class="form-control"formControlName="nomProduit" mdbInput>
+                        <label for="materialRegisterFormFirstName">Nom de produit</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <!-- Last name -->
+                    <div class="md-form">
+                        <input type="email" id="materialRegisterFormLastName" class="form-control" formControlName="marqueProduit" mdbInput>
+                        <label for="materialRegisterFormLastName">Price</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- E-mail -->
+            <div class="md-form mt-0">
+                <input id="materialRegisterFormEmail" class="form-control" formControlName="catProduit" mdbInput>
+                <label for="materialRegisterFormEmail">Catégorie</label>
+            </div>
+
+            <!-- Password -->
+            <div class="md-form">
+                <input type="password" id="materialRegisterFormPassword" class="form-control" formControlName="genreProduit"
+                    aria-describedby="materialRegisterFormPasswordHelpBlock" mdbInput>
+                <label for="materialRegisterFormPassword">Genre</label>
+            </div>
+
+            <!-- Phone number -->
+            <div class="md-form">
+                <input type="text" id="materialRegisterFormPhone" class="form-control"
+                    aria-describedby="materialRegisterFormPhoneHelpBlock" mdbInput formControlName="prixProduit">
+                <label for="materialRegisterFormPhone">Prix original </label>
+            </div>
+
+            <div class="md-form">
+                <input type="text" id="materialRegisterFormPhone" class="form-control"
+                    aria-describedby="materialRegisterFormPhoneHelpBlock" mdbInput formControlName="prixRedProduit">
+                <label for="materialRegisterFormPhone">Prix apres reduction</label>
+            </div>
+
+
+
+            <!-- Sign up button -->
+            <button mdbBtn color="info" class="my-4 waves-effect z-depth-0" mdbWavesEffect type="submit">Save</button>
+
+
+        </form>
+        <!-- Form -->
+
+    </mdb-card-body>
+
+</mdb-card>
+<!-- Material form register -->

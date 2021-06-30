@@ -1,0 +1,48 @@
+<!-- Material form register -->
+<mdb-card>
+
+  <mdb-card-header  class="info-color white-text text-center py-4">
+    <h5>
+      <strong>List of Users</strong>
+    </h5>
+  </mdb-card-header>
+
+  <!--Card content-->
+  <mdb-card-body class="px-lg-5 pt-0">
+
+    <!-- Form -->
+    <form class="text-center" style="color: #757575;">
+      <table id="dataTable" class="table table-hover table-striped">
+        <thead>
+        <tr>
+
+          <th>Nom de produit </th>
+          <th>Price </th>
+          <th>Catégorie</th>
+          <th>Genre</th>
+          <th>Prix original</th>
+          <th>Prix apres reduction</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of registartions;let i=index">
+          <td>{{user.nomProduit}}</td>
+          <td>{{user.marqueProduit}}</td>
+          <td>{{user.catProduit}}</td>
+          <td>{{user.genreProduit}}</td>
+          <td>{{user.prixProduit}}</td>
+          <td>{{user.prixRedProduit}}</td>
+          <td>
+          <button [routerLink]="['/updateProduct',i]" class="btn btn-info">Update</button>
+          <button (click)='deleteProduit(i)' class="btn btn-danger">Suprimer</button>
+        </td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+    <!-- Form -->
+
+  </mdb-card-body>
+
+</mdb-card>
+<!-- Material form register -->
