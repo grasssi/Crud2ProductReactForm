@@ -54,17 +54,17 @@
 
             <!-- Phone number -->
             <div class="md-form">
-                <input type="text" id="materialRegisterFormPhone" class="form-control"
+                <input type="text" id="materialRegisterFormPrix" class="form-control"
                     aria-describedby="materialRegisterFormPhoneHelpBlock" mdbInput formControlName="prixProduit">
-                <label for="materialRegisterFormPhone">Prix original </label>
+                <label for="materialRegisterFormPrix">Prix original </label>
                 <mdb-error *ngIf="submitted && profileForm.controls.prixProduit.hasError('required')">Vérifiez votre saisie</mdb-error>
 
             </div>
 
             <div class="md-form">
-                <input type="text" id="materialRegisterFormPhone" class="form-control"
+                <input type="text" id="materialRegisterFormPrixRed" class="form-control"
                     aria-describedby="materialRegisterFormPhoneHelpBlock" mdbInput formControlName="prixRedProduit">
-                <label for="materialRegisterFormPhone">Prix apres reduction</label>
+                <label for="materialRegisterFormPrixRed">Prix apres reduction</label>
                 <mdb-error *ngIf="submitted && profileForm.controls.prixRedProduit.hasError('required')">Vérifiez votre saisie</mdb-error>
 
             </div>
@@ -72,7 +72,7 @@
 
 
             <!-- Sign up button -->
-            <button mdbBtn color="info" class="my-4 waves-effect z-depth-0" mdbWavesEffect (click)='updateProduct()'>Save</button>
+            <button mdbBtn color="info" class="my-4 waves-effect z-depth-0" mdbWavesEffect [disabled]="profileForm.invalid" (click)='updateProduct()'>Save</button>
 
 
         </form>

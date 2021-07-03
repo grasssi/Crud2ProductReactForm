@@ -54,17 +54,17 @@
 
             <!-- Phone number -->
             <div class="md-form">
-                <input type="text" id="materialRegisterFormPhone" class="form-control"
+                <input type="text" id="materialRegisterFormPrix" class="form-control"
                     aria-describedby="materialRegisterFormPhoneHelpBlock" mdbInput formControlName="prixProduit">
-                <label for="materialRegisterFormPhone">Prix original </label>
+                <label for="materialRegisterFormPrix">Prix original </label>
                 <mdb-error *ngIf="submitted && profileForm.controls.prixProduit.hasError('required')">Vérifiez votre saisie</mdb-error>
 
             </div>
 
             <div class="md-form">
-                <input type="text" id="materialRegisterFormPhone" class="form-control"
+                <input type="text" id="materialRegisterFormPrixRed" class="form-control"
                     aria-describedby="materialRegisterFormPhoneHelpBlock" mdbInput formControlName="prixRedProduit">
-                <label for="materialRegisterFormPhone">Prix apres reduction</label>
+                <label for="materialRegisterFormPrixRed">Prix apres reduction</label>
                 <mdb-error *ngIf="submitted && profileForm.controls.prixRedProduit.errors?.required">Vérifiez votre saisie</mdb-error>
 
             </div>
