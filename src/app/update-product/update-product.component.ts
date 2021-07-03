@@ -37,7 +37,7 @@ export class UpdateProductComponent implements OnInit {
     localStorage.setItem('registration', JSON.stringify(this.users))
     //console.log('users=', this.users)
     //apres lupdate naviger vers le component listUser
-    this.router.navigate(['/listUser'])
+    this.router.navigate(['/listProduct'])
   }
 }
 

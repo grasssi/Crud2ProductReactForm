@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -15,8 +16,8 @@ export class AddProductComponent implements OnInit {
     prixRedProduit:new FormControl('')
    // email: new FormControl(''),
   })
- 
-  constructor()  {}
+
+  constructor(private router :Router)  {}
 
   ngOnInit(): void {
   }
@@ -25,5 +26,7 @@ export class AddProductComponent implements OnInit {
     registartions.push(this.profileForm.value);
     localStorage.setItem('registration', JSON.stringify(registartions));
     console.log('users=', registartions)
+    this.router.navigate(['/listProduct'])
+
   }
 }
