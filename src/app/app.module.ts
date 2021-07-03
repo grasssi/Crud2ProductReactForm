@@ -6,21 +6,29 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListProductComponent } from './list-product/list-product.component';
 import { AddProductComponent } from './add-product/add-product.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateProductComponent } from './update-product/update-product.component';
+import { registerLocaleData } from '@angular/common';
+import localefr from '@angular/common/locales/fr';
+import { UsdInrPipe } from './pipes/usd-inr.pipe'
 
+
+registerLocaleData(localefr, 'fr');
 @NgModule({
   declarations: [
     AppComponent,
     ListProductComponent,
     AddProductComponent,
-    UpdateProductComponent
+    UpdateProductComponent,
+    UsdInrPipe,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
