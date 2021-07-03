@@ -19,6 +19,7 @@
                     <div class="md-form">
                         <input type="text" id="materialRegisterFormFirstName" class="form-control"formControlName="nomProduit" mdbInput>
                         <label for="materialRegisterFormFirstName">Nom de produit</label>
+                        <mdb-error *ngIf="submitted && profileForm.controls.nomProduit.hasError('required')">Vérifiez votre saisie</mdb-error>
                     </div>
                 </div>
                 <div class="col">
@@ -26,6 +27,9 @@
                     <div class="md-form">
                         <input type="email" id="materialRegisterFormLastName" class="form-control" formControlName="marqueProduit" mdbInput>
                         <label for="materialRegisterFormLastName">Price</label>
+                        <mdb-error *ngIf="submitted && profileForm.controls.marqueProduit.hasError('required')">Vérifiez votre saisie</mdb-error>
+                        <mdb-error *ngIf="submitted && profileForm.controls.marqueProduit.hasError('minlength')">minimum 8</mdb-error>
+
                     </div>
                 </div>
             </div>
@@ -34,6 +38,9 @@
             <div class="md-form mt-0">
                 <input id="materialRegisterFormEmail" class="form-control" formControlName="catProduit" mdbInput>
                 <label for="materialRegisterFormEmail">Catégorie</label>
+                <mdb-error *ngIf="submitted && profileForm.controls.catProduit.hasError('required')">Vérifiez votre saisie</mdb-error>
+                <mdb-error *ngIf="submitted && profileForm.controls.catProduit.hasError('maxlength')">maximum 9</mdb-error>
+
             </div>
 
             <!-- Password -->
@@ -41,6 +48,8 @@
                 <input type="password" id="materialRegisterFormPassword" class="form-control" formControlName="genreProduit"
                     aria-describedby="materialRegisterFormPasswordHelpBlock" mdbInput>
                 <label for="materialRegisterFormPassword">Genre</label>
+                <mdb-error *ngIf="submitted && profileForm.controls.genreProduit.hasError('required')">Vérifiez votre saisie</mdb-error>
+
             </div>
 
             <!-- Phone number -->
@@ -48,12 +57,16 @@
                 <input type="text" id="materialRegisterFormPhone" class="form-control"
                     aria-describedby="materialRegisterFormPhoneHelpBlock" mdbInput formControlName="prixProduit">
                 <label for="materialRegisterFormPhone">Prix original </label>
+                <mdb-error *ngIf="submitted && profileForm.controls.prixProduit.hasError('required')">Vérifiez votre saisie</mdb-error>
+
             </div>
 
             <div class="md-form">
                 <input type="text" id="materialRegisterFormPhone" class="form-control"
                     aria-describedby="materialRegisterFormPhoneHelpBlock" mdbInput formControlName="prixRedProduit">
                 <label for="materialRegisterFormPhone">Prix apres reduction</label>
+                <mdb-error *ngIf="submitted && profileForm.controls.prixRedProduit.errors?.required">Vérifiez votre saisie</mdb-error>
+
             </div>
 
 

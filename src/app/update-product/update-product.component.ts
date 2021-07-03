@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -11,13 +11,14 @@ export class UpdateProductComponent implements OnInit {
   users = JSON.parse(localStorage.getItem('registration') || '[]');
   constructor(private activatetRoute: ActivatedRoute, private router: Router, private fb: FormBuilder) { }
   index: any;
+  submitted=false;
   profileForm = new FormGroup({
-    nomProduit: new FormControl(''),
-    marqueProduit: new FormControl(''),
-    catProduit: new FormControl(''),
-    genreProduit: new FormControl(''),
-    prixProduit: new FormControl(''),
-    prixRedProduit: new FormControl('')
+    nomProduit: new FormControl('',Validators.required),
+    marqueProduit: new FormControl('',[Validators.required,Validators.minLength(8)]),
+    catProduit: new FormControl('',[Validators.maxLength(9),Validators.required]),
+    genreProduit: new FormControl('',[Validators.required]),
+    prixProduit: new FormControl('',[Validators.required]),
+    prixRedProduit:new FormControl('',Validators.required)
   })
   ngOnInit(): void {
     this.index = this.activatetRoute.snapshot.params.index;
@@ -31,7 +32,10 @@ export class UpdateProductComponent implements OnInit {
     //   prixRedProduit: [this.users[this.index].prixRedProduit]
     // })
   }
-  updateUser() {
+  updateProduct() {
+    this.submitted=true;
+    if (this.profileForm.invalid)
+    {return};
     //remplacer len nouveau object avec lancien objet
     this.users.splice(this.index, 1, this.profileForm.value);
     //mise a jour de localStorage
