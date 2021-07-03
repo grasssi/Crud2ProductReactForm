@@ -25,7 +25,6 @@ export class AddProductComponent implements OnInit {
     const registartions = JSON.parse(localStorage.getItem('registration') || '[]');
     registartions.push(this.profileForm.value);
     localStorage.setItem('registration', JSON.stringify(registartions));
-    console.log('users=', registartions)
     this.router.navigate(['/listProduct'])
 
   }

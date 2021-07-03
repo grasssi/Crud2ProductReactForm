@@ -21,14 +21,15 @@ export class UpdateProductComponent implements OnInit {
   })
   ngOnInit(): void {
     this.index = this.activatetRoute.snapshot.params.index;
-    this.profileForm = this.fb.group({
-      nomProduit: [this.users[this.index].nomProduit],
-      marqueProduit: [this.users[this.index].marqueProduit],
-      catProduit: [this.users[this.index].catProduit],
-      genreProduit: [this.users[this.index].genreProduit],
-      prixProduit: [this.users[this.index].prixProduit],
-      prixRedProduit: [this.users[this.index].prixRedProduit]
-    })
+    this.profileForm.patchValue(this.users[this.index])
+    // this.profileForm = this.fb.group({
+    //   nomProduit: [this.users[this.index].nomProduit],
+    //   marqueProduit: [this.users[this.index].marqueProduit],
+    //   catProduit: [this.users[this.index].catProduit],
+    //   genreProduit: [this.users[this.index].genreProduit],
+    //   prixProduit: [this.users[this.index].prixProduit],
+    //   prixRedProduit: [this.users[this.index].prixRedProduit]
+    // })
   }
   updateUser() {
     //remplacer len nouveau object avec lancien objet
