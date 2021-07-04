@@ -5,13 +5,18 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class UsdInrPipe implements PipeTransform {
 
-  transform(value: any): unknown {
-    //const x = args.charAt(2);
-    const x=value.charAt(0);
-    const pos=x.indexOf
-    //const newvalue = value.replace('Grassi', 'react');
-    console.log('resu=', x)
-    return value.charAt(0).toUpperCase()+ value.substr(1);
-  }
+  transform(value: any, args?: any): any {
+    if (!value) return null;
+    if (!args) return value;
 
+    args = args.toLowerCase();
+
+    //La méthode JSON.stringify() convertit une valeur JavaScript en chaîne JSON.
+    return value.filter(function (item: any) {
+      return JSON.stringify(item).toLowerCase().includes(args);
+
+    });
+  }
 }
+
+
