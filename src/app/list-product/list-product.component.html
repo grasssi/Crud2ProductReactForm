@@ -3,7 +3,7 @@
 
   <mdb-card-header class="info-color white-text text-center py-4">
     <h5>
-      <strong>List of Users</strong>
+      <strong>List of Products</strong>
     </h5>
   </mdb-card-header>
 
@@ -12,6 +12,9 @@
 
     <!-- Form -->
     <form class="text-center" style="color: #757575;">
+      <div class="search-hero">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a Product by id or name ....">
+      </div>
       <table id="dataTable" class="table table-hover table-striped">
         <thead>
           <tr>
@@ -22,18 +25,20 @@
             <th>Genre</th>
             <th>Prix original</th>
             <th>Prix apres reduction</th>
+            <th>Pourcentage de réduction</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let user of registartions ;let i=index ">
+          <tr *ngFor="let user of registartions | usdInr :searchText ;let i=index ">
             <!-- <td>{{i | currency : 'TND ' :'symbol' : '1.2'}}</td> -->
-            <td>{{(i+1) | currency : 'TND' : 'symbol' : '1.2'}}</td>
-            <td>{{user.nomProduit | usdInr}}</td>
+            <td>{{(i+1)}}</td>
+            <td>{{user.nomProduit }}</td>
             <td>{{user.marqueProduit}}</td>
-            <td>{{user.catProduit | lowercase }}</td>
+            <td>{{user.catProduit}}</td>
             <td>{{user.genreProduit}}</td>
-            <td>{{user.prixProduit | currency : 'TND ' :'symbol'}}</td>
+            <td>{{user.prixProduit}}</td>
             <td>{{user.prixRedProduit}}</td>
+            <td>{{ 0 | pctgRed:user.prixProduit:user.prixRedProduit }}</td>
             <td>
               <button [routerLink]="['/updateProduct',i]" class="btn btn-info">Update</button>
               <button (click)='deleteProduit(i)' class="btn btn-danger">Suprimer</button>

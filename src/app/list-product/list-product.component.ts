@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-product.component.scss']
 })
 export class ListProductComponent implements OnInit {
-
+  searchText: any;
   registartions = JSON.parse(localStorage.getItem('registration') || '[]');
   constructor() { }
 

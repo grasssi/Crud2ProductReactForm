@@ -45,7 +45,7 @@
 
             <!-- Password -->
             <div class="md-form">
-                <input type="password" id="materialRegisterFormPassword" class="form-control" formControlName="genreProduit"
+                <input id="materialRegisterFormPassword" class="form-control" formControlName="genreProduit"
                     aria-describedby="materialRegisterFormPasswordHelpBlock" mdbInput>
                 <label for="materialRegisterFormPassword">Genre</label>
                 <mdb-error *ngIf="submitted && profileForm.controls.genreProduit.hasError('required')">Vérifiez votre saisie</mdb-error>

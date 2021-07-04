@@ -11,6 +11,8 @@ import { UpdateProductComponent } from './update-product/update-product.componen
 import { registerLocaleData } from '@angular/common';
 import localefr from '@angular/common/locales/fr';
 import { UsdInrPipe } from './pipes/usd-inr.pipe'
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { PctgRedPipe } from './pipes/pctg-red.pipe';
 
 
 registerLocaleData(localefr, 'fr');
@@ -21,6 +23,7 @@ registerLocaleData(localefr, 'fr');
     AddProductComponent,
     UpdateProductComponent,
     UsdInrPipe,
+    PctgRedPipe,
 
   ],
   imports: [
@@ -28,6 +31,7 @@ registerLocaleData(localefr, 'fr');
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
     ReactiveFormsModule,
+    Ng2SearchPipeModule,
     FormsModule
   ],
   providers: [],
